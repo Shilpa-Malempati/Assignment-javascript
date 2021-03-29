@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript async / await</h2>
+
+<h1 id="demo"></h1>
+<h1 id="root"></h1>
+
+<script>
+
+// Async
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+async function myFunction() {
+    return "Hi Shilpa";
+}
+
+myFunction().then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+
+
+// Await: we can use with async funs only ,fn makes wait for promises
+
+async function myDisplay() {
+
+  let myPromise = new Promise(function(myResolve, myReject) {
+    setTimeout(function(){
+      myResolve("welcome!!");},
+     3000);
+  });
+  document.getElementById("root").innerHTML = await myPromise;
+  }
+  myDisplay();
+
+</script>
+
+</body>
+</html>
